@@ -3,6 +3,7 @@ package com.example.product.controller;
 import com.example.product.user.User;
 import com.example.product.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<?> save (@RequestBody User user) {
         userService.save(user);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
     @PostMapping("/find")

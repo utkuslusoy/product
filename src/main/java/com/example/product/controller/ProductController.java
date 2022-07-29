@@ -32,7 +32,7 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User Not Found");
         }
 
-        return ResponseEntity.ok(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
     @PutMapping
